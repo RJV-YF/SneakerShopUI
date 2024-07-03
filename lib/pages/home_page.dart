@@ -19,12 +19,26 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  final List<Widget> _pages = [const MyShop(), const MyCart()];
+  final List<Widget> _pages = [
+    const MyShop(),
+    const MyCart(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
+      appBar: AppBar(
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+      ),
+      drawer: const Drawer(),
       body: _pages[selectedIndex],
       bottomNavigationBar: MyNavbar(
         index: selectedIndex,
