@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneakershop/components/my_drawer.dart';
 import 'package:sneakershop/components/my_navbar.dart';
 import 'package:sneakershop/pages/cart_page.dart';
 import 'package:sneakershop/pages/shop_page.dart';
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           );
         }),
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
       body: _pages[selectedIndex],
       bottomNavigationBar: MyNavbar(
         index: selectedIndex,
