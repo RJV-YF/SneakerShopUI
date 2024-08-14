@@ -30,6 +30,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
+        backgroundColor: Colors.grey.shade300,
+        elevation: 0,
         leading: Builder(builder: (context) {
           return IconButton(
             icon: const Icon(Icons.menu),
