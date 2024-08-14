@@ -14,11 +14,11 @@ class MyShop extends StatefulWidget {
 }
 
 class _MyShopState extends State<MyShop> {
-  // add shoe to cart
+  // Add shoe to cart
   void addShoeToCart(Shoe shoe) {
     Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
 
-    // alert the user the product is added to the cart
+    // Alert the user the product is added to the cart
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -40,7 +40,7 @@ class _MyShopState extends State<MyShop> {
         backgroundColor: Colors.grey.shade300,
         body: Column(
           children: [
-            // search bar
+            // Search bar
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: TextField(
@@ -64,21 +64,19 @@ class _MyShopState extends State<MyShop> {
               ),
             ),
 
-            // message
+            // Message
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 18),
+                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 12),
               child: Text(
                 'Everyone flies but some flies longer than others',
                 style: GoogleFonts.poppins(color: Colors.grey, fontSize: 12),
               ),
             ),
 
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
 
-            // hot picks
+            // Hot picks
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Row(
@@ -97,25 +95,26 @@ class _MyShopState extends State<MyShop> {
                       color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
+
+            const SizedBox(height: 30),
+
             Expanded(
               child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: value.getShoeShop().length,
-                  itemBuilder: (context, index) {
-                    Shoe shoe = value.getShoeShop()[index];
-                    return ShoeTile(
-                      shoe: shoe,
-                      onTap: () => addShoeToCart(shoe),
-                    );
-                  }),
-            )
+                scrollDirection: Axis.horizontal,
+                itemCount: value.getShoeShop().length,
+                itemBuilder: (context, index) {
+                  Shoe shoe = value.getShoeShop()[index];
+                  return ShoeTile(
+                    shoe: shoe,
+                    onTap: () => addShoeToCart(shoe),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

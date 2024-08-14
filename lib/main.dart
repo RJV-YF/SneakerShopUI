@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sneakershop/models/cart.dart';
+import 'package:sneakershop/pages/shop_page.dart';
 
+import 'pages/cart_page.dart';
 import 'pages/intro_page.dart';
 
 void main() {
@@ -16,9 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => Cart(),
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: IntroPage(),
+        home: const IntroPage(),
+        routes: {
+          '/shop': (context) => const MyShop(),
+          '/cart': (context) => const MyCart(),
+        },
       ),
     );
   }
